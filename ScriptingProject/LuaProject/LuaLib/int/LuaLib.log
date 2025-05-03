@@ -36,4 +36,4 @@
   lzio.c
   Generating Code...
 lua.obj : warning LNK4006: main already defined in luac.obj; second definition ignored
-  LuaLib.vcxproj -> C:\Users\Barnen\Desktop\ScriptingProject\LuaProject\LuaLib\lib\LuaLib_d.lib
+  LuaLib.vcxproj -> C:\Users\Barnen\Desktop\SkriptingGame2D\SkriptingGame\ScriptingProject\LuaProject\LuaLib\lib\LuaLib_d.lib
