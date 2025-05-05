@@ -157,7 +157,18 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="jahopp.cpp" />
     <ClCompile Include="main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="fail.lua" />
+    <None Include="fizzubzz.lua" />
+    <None Include="populate.lua" />
+    <None Include="stacktest.lua" />
+    <None Include="transform-test.lua" />
+    <None Include="transform.lua" />
+    <None Include="vector-test.lua" />
+    <None Include="vector.lua" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

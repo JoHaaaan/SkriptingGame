@@ -18,5 +18,18 @@
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="jahopp.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="fizzubzz.lua" />
+    <None Include="stacktest.lua" />
+    <None Include="fail.lua" />
+    <None Include="populate.lua" />
+    <None Include="vector-test.lua" />
+    <None Include="transform-test.lua" />
+    <None Include="vector.lua" />
+    <None Include="transform.lua" />
   </ItemGroup>
 </Project>

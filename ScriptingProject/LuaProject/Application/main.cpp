@@ -1,50 +1,130 @@
+// main.cpp
 #include <iostream>
 #include <thread>
 #include <windows.h>
 #include <string>
+#include <cstdlib>
+#include <ctime>
 
+extern "C" {
 #include "lua.hpp"
-
-void DumpError(lua_State* L)
-{
-	if (lua_gettop(L) && lua_isstring(L, -1))
-	{
-		std::cout << "Lua error" << lua_tostring(L, -1) << std::endl;
-		lua_pop(L, 1);
-	}
 }
 
-void ConsoleThreadFunction(lua_State* L)
-{
-	std::string input;
-	while (GetConsoleWindow())
-	{
-		std::cout << ">";
-		std::getline(std::cin, input);
+// --------------------------- //
+//         Vector3 Struct      //
+// --------------------------- //
 
-		if (luaL_dostring(L, input.c_str()) != LUA_OK)
-		{
-			DumpError(L);
-		}
-	}
+struct Vector3 {
+    float X, Y, Z;
+    Vector3(float x = 0.f, float y = 0.f, float z = 0.f) : X(x), Y(y), Z(z) {}
+};
+
+struct Transform {
+    Vector3 position;
+    Vector3 rotation;
+    Vector3 scale;
+};
+
+// --------------------------- //
+//      Lua <-> Vector3        //
+// --------------------------- //
+
+Vector3 lua_tovector(lua_State* L, int index) {
+    if (!lua_istable(L, index))
+        luaL_error(L, "Expected vector table at index %d", index);
+
+    Vector3 v;
+
+    lua_getfield(L, index, "x");
+    v.X = static_cast<float>(luaL_optnumber(L, -1, 0.0));
+    lua_pop(L, 1);
+
+    lua_getfield(L, index, "y");
+    v.Y = static_cast<float>(luaL_optnumber(L, -1, 0.0));
+    lua_pop(L, 1);
+
+    lua_getfield(L, index, "z");
+    v.Z = static_cast<float>(luaL_optnumber(L, -1, 0.0));
+    lua_pop(L, 1);
+
+    return v;
 }
 
-int main()
-{
-	lua_State* L = luaL_newstate();
-	luaL_openlibs(L);
+void lua_pushvector(lua_State* L, const Vector3& v) {
+    lua_newtable(L);
 
-	std::thread consoleThread(ConsoleThreadFunction, L);
-	
-	bool running = true;
-	while (running)
-	{
-		// Update game
-		// Render game
-		// Ta tid... osv...
-		//std::cout << "HELLO" << std::endl;
-	}
+    lua_pushnumber(L, v.X);
+    lua_setfield(L, -2, "x");
 
-	std::cout << "Hello World!" << std::endl;
-	return 0;
+    lua_pushnumber(L, v.Y);
+    lua_setfield(L, -2, "y");
+
+    lua_pushnumber(L, v.Z);
+    lua_setfield(L, -2, "z");
 }
+
+// --------------------------- //
+//      Lua <-> Transform      //
+// --------------------------- //
+
+Transform lua_totransform(lua_State* L, int index) {
+    if (!lua_istable(L, index))
+        luaL_error(L, "Expected transform table at index %d", index);
+
+    Transform t;
+
+    lua_getfield(L, index, "position");
+    t.position = lua_tovector(L, -1);
+    lua_pop(L, 1);
+
+    lua_getfield(L, index, "rotation");
+    t.rotation = lua_tovector(L, -1);
+    lua_pop(L, 1);
+
+    lua_getfield(L, index, "scale");
+    t.scale = lua_tovector(L, -1);
+    lua_pop(L, 1);
+
+    return t;
+}
+
+void lua_pushtransform(lua_State* L, const Transform& t) {
+    lua_newtable(L);
+
+    lua_pushvector(L, t.position);
+    lua_setfield(L, -2, "position");
+
+    lua_pushvector(L, t.rotation);
+    lua_setfield(L, -2, "rotation");
+
+    lua_pushvector(L, t.scale);
+    lua_setfield(L, -2, "scale");
+}
+
+static int PrintTransform(lua_State* L) {
+    Transform t = lua_totransform(L, 1);
+    std::cout << "[C++] Transform:\n";
+    std::cout << "  Position: (" << t.position.X << ", " << t.position.Y << ", " << t.position.Z << ")\n";
+    std::cout << "  Rotation: (" << t.rotation.X << ", " << t.rotation.Y << ", " << t.rotation.Z << ")\n";
+    std::cout << "  Scale:    (" << t.scale.X << ", " << t.scale.Y << ", " << t.scale.Z << ")\n";
+    return 0;
+}
+
+// --------------------------- //
+//            MAIN             //
+// --------------------------- //
+
+int main() {
+    lua_State* L = luaL_newstate();
+    luaL_openlibs(L);
+
+    // Kör Lua-fil som testar vector.lua
+    if (luaL_dofile(L, "transform-test.lua") != LUA_OK) {
+        std::cerr << "Lua Error: " << lua_tostring(L, -1) << std::endl;
+        lua_pop(L, 1);
+    }
+
+    lua_close(L);
+    return 0;
+}
+
