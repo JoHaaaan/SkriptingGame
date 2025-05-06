@@ -18,6 +18,20 @@ struct Vector3 {
     float X, Y, Z;
     Vector3(float x = 0.f, float y = 0.f, float z = 0.f) : X(x), Y(y), Z(z) {}
 };
+void ConsoleThreadFunction(lua_State* L) {
+    std::string input;
+    while (true) {
+        std::cout << "Lua> ";
+        std::getline(std::cin, input);
+
+        if (input == "exit") break;
+
+        if (luaL_dostring(L, input.c_str()) != LUA_OK) {
+            std::cerr << "Lua error: " << lua_tostring(L, -1) << std::endl;
+            lua_pop(L, 1);
+        }
+    }
+}
 
 struct Transform {
     Vector3 position;
@@ -118,13 +132,11 @@ int main() {
     lua_State* L = luaL_newstate();
     luaL_openlibs(L);
 
-    // Kör Lua-fil som testar vector.lua
-    if (luaL_dofile(L, "transform-test.lua") != LUA_OK) {
-        std::cerr << "Lua Error: " << lua_tostring(L, -1) << std::endl;
-        lua_pop(L, 1);
-    }
+
+    luaL_dofile(L, "vector-test.lua");
+
+    ConsoleThreadFunction(L);
 
     lua_close(L);
     return 0;
 }
-
