@@ -61,8 +61,18 @@ function vector.__eq(a, b)
         return a.x == b.x and a.y == b.y and a.z == b.z
     end
     return false
-
 end
+
+function vector:length()
+    return math.sqrt(self.x^2 + self.y^2 + self.z^2)
+end
+
+
+setmetatable(vector, {
+    __call = function(_, x, y, z)
+        return vector.new(x, y, z)
+    end
+})
 
 
 vector.__index = vector

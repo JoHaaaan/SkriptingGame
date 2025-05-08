@@ -1,14 +1,16 @@
 // main.cpp
+#include "entt/entt.hpp"
+#include "lua.hpp"
 #include <iostream>
 #include <thread>
 #include <windows.h>
 #include <string>
 #include <cstdlib>
 #include <ctime>
+#include <stdlib.h>
+#include <time.h>
 
-extern "C" {
-#include "lua.hpp"
-}
+
 
 // --------------------------- //
 //         Vector3 Struct      //
@@ -124,11 +126,54 @@ static int PrintTransform(lua_State* L) {
     return 0;
 }
 
+struct Health {
+	float Value;
+};
+
+struct Poison {
+	float TickDamage;
+};
+
 // --------------------------- //
 //            MAIN             //
 // --------------------------- //
 
 int main() {
+    entt::registry registry;
+
+    srand(time(NULL));
+    for (int i = 0; i < 100; ++i) {
+        auto entity = registry.create();
+        registry.emplace<Health>(entity, 100.0f);
+        float tickDamage = static_cast<float>(rand() % 10 + 1);
+
+        registry.emplace<Poison>(entity, tickDamage);
+    }
+
+    int iterations = 0;
+    while (!registry.view<Health>().empty())
+    {
+        {
+            auto view = registry.view<Health, Poison>();
+            view.each([](Health& health, Poison& poison) {
+                health.Value -= poison.TickDamage;
+            });
+        }
+        {
+            auto view = registry.view<Health>();
+            view.each([&](entt::entity entity, const Health& health) {
+                if (health.Value <= 0.f) 
+                {
+                    registry.destroy(entity);
+                } 
+            });
+        }
+        iterations++;
+        std::cout << "Iteration" << iterations
+		    << ", entities alive: " << registry.view<entt::entity>().size()
+            << std::endl;
+    }
+
     lua_State* L = luaL_newstate();
     luaL_openlibs(L);
 
