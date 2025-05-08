@@ -153,21 +153,53 @@ int main() {
     int iterations = 0;
     while (!registry.view<Health>().empty())
     {
+        // PoisonSystem
         {
             auto view = registry.view<Health, Poison>();
-            view.each([](Health& health, Poison& poison) {
+            view.each([](Health& health, Poison& poison) 
+                {
                 health.Value -= poison.TickDamage;
             });
         }
+        // CleanupSystem
         {
             auto view = registry.view<Health>();
-            view.each([&](entt::entity entity, const Health& health) {
+            view.each([&](entt::entity entity, const Health& health) 
+                {
                 if (health.Value <= 0.f) 
                 {
                     registry.destroy(entity);
                 } 
             });
         }
+
+        // CureSystem
+		// Remove poison from all poisoned entities
+        if ((rand() % 100) < 5) {
+		    auto view = registry.view<Health, Poison>();
+		    view.each([&](entt::entity entity, Health& health, Poison& poison) 
+                {
+
+			    // Remove the poison component
+			    registry.remove<Poison>(entity);
+				std::cout << "Cured all entities! " << std::endl;
+			    });
+		}
+
+        // SpawnPoisonSystem
+		// For each entity with health without poison 25% chance to spawn poison
+        auto view_healthy = registry.view<Health>(entt::exclude<Poison>);
+		view_healthy.each([&](entt::entity entity, Health& health) 
+            {
+			    if ((rand() % 100) < 25) 
+                {
+				    float tickDamage = static_cast<float>(rand() % 10 + 1);
+				    registry.emplace<Poison>(entity, tickDamage);
+					std::cout << "Spawned poison on entity " << (int)entity << std::endl;
+			    }
+			});
+
+
         iterations++;
         std::cout << "Iteration" << iterations
 		    << ", entities alive: " << registry.view<entt::entity>().size()

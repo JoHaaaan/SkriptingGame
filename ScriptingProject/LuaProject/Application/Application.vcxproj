@@ -163,6 +163,7 @@
   <ItemGroup>
     <ClCompile Include="jahopp.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Scene.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="fail.lua" />
@@ -173,6 +174,9 @@
     <None Include="transform.lua" />
     <None Include="vector-test.lua" />
     <None Include="vector.lua" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Scene.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

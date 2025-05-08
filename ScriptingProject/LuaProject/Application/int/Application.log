@@ -1,5 +1,3 @@
-﻿  jahopp.cpp
-  main.cpp
+﻿  main.cpp
 C:\Users\Barnen\Desktop\SkriptingGame2D\SkriptingGame\ScriptingProject\LuaProject\Application\main.cpp(144,15): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-  Generating Code...
   Application.vcxproj -> C:\Users\Barnen\Desktop\SkriptingGame2D\SkriptingGame\ScriptingProject\LuaProject\Application\bin\Application_d.exe

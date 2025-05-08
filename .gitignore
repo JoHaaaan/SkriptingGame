@@ -39,3 +39,4 @@ lib/
 ScriptingProject/LuaProject/.vs/LuaProject/v17/ipch/AutoPCH/849d1ac418d5e37c/MAIN.ipch
 ScriptingProject/LuaProject/.vs/LuaProject/v17/ipch/AutoPCH/849d1ac418d5e37c/MAIN.ipch
 *.ipch
+/ScriptingProject/LuaProject/.vs/LuaProject/v17/ipch

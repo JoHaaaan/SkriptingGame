@@ -21,6 +21,9 @@
     <ClCompile Include="jahopp.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Scene.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="fizzubzz.lua" />
@@ -31,5 +34,10 @@
     <None Include="transform-test.lua" />
     <None Include="vector.lua" />
     <None Include="transform.lua" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Scene.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
