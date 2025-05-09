@@ -42,3 +42,17 @@ ScriptingProject/LuaProject/.vs/LuaProject/v17/ipch/AutoPCH/849d1ac418d5e37c/MAI
 /ScriptingProject/LuaProject/.vs/LuaProject/v17/ipch
 ScriptingProject/LuaProject/.vs/LuaProject/v17/ipch/AutoPCH/849d1ac418d5e37c/MAIN.ipch
 /ScriptingProject/LuaProject/.vs/LuaProject/v17/ipch
+ipch/
+
+# Visual Studio cache files
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# IntelliSense database files
+*.VC.db
+*.VC.VC.opendb
+*.ipch/
+
+
