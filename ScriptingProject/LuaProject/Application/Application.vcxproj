@@ -161,14 +161,19 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Components.hpp" />
     <ClCompile Include="jahopp.cpp" />
+    <ClCompile Include="LuaBindings.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="PoisonSystem.cpp" />
     <ClCompile Include="Scene.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="fail.lua" />
     <None Include="fizzubzz.lua" />
+    <None Include="monster.lua" />
     <None Include="populate.lua" />
+    <None Include="sceneDemo.lua" />
     <None Include="stacktest.lua" />
     <None Include="transform-test.lua" />
     <None Include="transform.lua" />
@@ -176,7 +181,10 @@
     <None Include="vector.lua" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="LuaBindings.hpp" />
+    <ClInclude Include="PoisonSystem.hpp" />
     <ClInclude Include="Scene.hpp" />
+    <ClInclude Include="System.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

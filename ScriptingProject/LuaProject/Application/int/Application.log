@@ -1,3 +1,8 @@
-﻿  main.cpp
-C:\Users\Barnen\Desktop\SkriptingGame2D\SkriptingGame\ScriptingProject\LuaProject\Application\main.cpp(144,15): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+﻿  Scene.cpp
+C:\Users\Barnen\Desktop\SkriptingGame2D\SkriptingGame\ScriptingProject\LuaProject\Application\Scene.cpp(62,16): warning C4244: 'initializing': conversion from 'lua_Integer' to 'int', possible loss of data
+C:\Users\Barnen\Desktop\SkriptingGame2D\SkriptingGame\ScriptingProject\LuaProject\Application\Scene.cpp(169,16): warning C4244: 'initializing': conversion from 'lua_Integer' to 'int', possible loss of data
+C:\Users\Barnen\Desktop\SkriptingGame2D\SkriptingGame\ScriptingProject\LuaProject\Application\Scene.cpp(177,16): warning C4244: 'initializing': conversion from 'lua_Integer' to 'int', possible loss of data
+C:\Users\Barnen\Desktop\SkriptingGame2D\SkriptingGame\ScriptingProject\LuaProject\Application\Scene.cpp(184,16): warning C4244: 'initializing': conversion from 'lua_Integer' to 'int', possible loss of data
+C:\Users\Barnen\Desktop\SkriptingGame2D\SkriptingGame\ScriptingProject\LuaProject\Application\Scene.cpp(221,16): warning C4244: 'initializing': conversion from 'lua_Integer' to 'int', possible loss of data
+C:\Users\Barnen\Desktop\SkriptingGame2D\SkriptingGame\ScriptingProject\LuaProject\Application\Scene.cpp(260,16): warning C4244: 'initializing': conversion from 'lua_Integer' to 'int', possible loss of data
   Application.vcxproj -> C:\Users\Barnen\Desktop\SkriptingGame2D\SkriptingGame\ScriptingProject\LuaProject\Application\bin\Application_d.exe

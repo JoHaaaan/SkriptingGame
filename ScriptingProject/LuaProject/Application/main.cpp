@@ -1,6 +1,12 @@
 // main.cpp
 #include "entt/entt.hpp"
 #include "lua.hpp"
+#include "Components.hpp"
+
+#include "Scene.hpp"
+#include "System.hpp"
+#include "LuaBindings.hpp"
+
 #include <iostream>
 #include <thread>
 #include <windows.h>
@@ -12,14 +18,7 @@
 
 
 
-// --------------------------- //
-//         Vector3 Struct      //
-// --------------------------- //
 
-struct Vector3 {
-    float X, Y, Z;
-    Vector3(float x = 0.f, float y = 0.f, float z = 0.f) : X(x), Y(y), Z(z) {}
-};
 void ConsoleThreadFunction(lua_State* L) {
     std::string input;
     while (true) {
@@ -35,87 +34,9 @@ void ConsoleThreadFunction(lua_State* L) {
     }
 }
 
-struct Transform {
-    Vector3 position;
-    Vector3 rotation;
-    Vector3 scale;
-};
 
-// --------------------------- //
-//      Lua <-> Vector3        //
-// --------------------------- //
 
-Vector3 lua_tovector(lua_State* L, int index) {
-    if (!lua_istable(L, index))
-        luaL_error(L, "Expected vector table at index %d", index);
 
-    Vector3 v;
-
-    lua_getfield(L, index, "x");
-    v.X = static_cast<float>(luaL_optnumber(L, -1, 0.0));
-    lua_pop(L, 1);
-
-    lua_getfield(L, index, "y");
-    v.Y = static_cast<float>(luaL_optnumber(L, -1, 0.0));
-    lua_pop(L, 1);
-
-    lua_getfield(L, index, "z");
-    v.Z = static_cast<float>(luaL_optnumber(L, -1, 0.0));
-    lua_pop(L, 1);
-
-    return v;
-}
-
-void lua_pushvector(lua_State* L, const Vector3& v) {
-    lua_newtable(L);
-
-    lua_pushnumber(L, v.X);
-    lua_setfield(L, -2, "x");
-
-    lua_pushnumber(L, v.Y);
-    lua_setfield(L, -2, "y");
-
-    lua_pushnumber(L, v.Z);
-    lua_setfield(L, -2, "z");
-}
-
-// --------------------------- //
-//      Lua <-> Transform      //
-// --------------------------- //
-
-Transform lua_totransform(lua_State* L, int index) {
-    if (!lua_istable(L, index))
-        luaL_error(L, "Expected transform table at index %d", index);
-
-    Transform t;
-
-    lua_getfield(L, index, "position");
-    t.position = lua_tovector(L, -1);
-    lua_pop(L, 1);
-
-    lua_getfield(L, index, "rotation");
-    t.rotation = lua_tovector(L, -1);
-    lua_pop(L, 1);
-
-    lua_getfield(L, index, "scale");
-    t.scale = lua_tovector(L, -1);
-    lua_pop(L, 1);
-
-    return t;
-}
-
-void lua_pushtransform(lua_State* L, const Transform& t) {
-    lua_newtable(L);
-
-    lua_pushvector(L, t.position);
-    lua_setfield(L, -2, "position");
-
-    lua_pushvector(L, t.rotation);
-    lua_setfield(L, -2, "rotation");
-
-    lua_pushvector(L, t.scale);
-    lua_setfield(L, -2, "scale");
-}
 
 static int PrintTransform(lua_State* L) {
     Transform t = lua_totransform(L, 1);
@@ -126,92 +47,39 @@ static int PrintTransform(lua_State* L) {
     return 0;
 }
 
-struct Health {
-	float Value;
-};
 
-struct Poison {
-	float TickDamage;
-};
+
 
 // --------------------------- //
 //            MAIN             //
 // --------------------------- //
 
 int main() {
-    entt::registry registry;
-
-    srand(time(NULL));
-    for (int i = 0; i < 100; ++i) {
-        auto entity = registry.create();
-        registry.emplace<Health>(entity, 100.0f);
-        float tickDamage = static_cast<float>(rand() % 10 + 1);
-
-        registry.emplace<Poison>(entity, tickDamage);
-    }
-
-    int iterations = 0;
-    while (!registry.view<Health>().empty())
-    {
-        // PoisonSystem
-        {
-            auto view = registry.view<Health, Poison>();
-            view.each([](Health& health, Poison& poison) 
-                {
-                health.Value -= poison.TickDamage;
-            });
-        }
-        // CleanupSystem
-        {
-            auto view = registry.view<Health>();
-            view.each([&](entt::entity entity, const Health& health) 
-                {
-                if (health.Value <= 0.f) 
-                {
-                    registry.destroy(entity);
-                } 
-            });
-        }
-
-        // CureSystem
-		// Remove poison from all poisoned entities
-        if ((rand() % 100) < 5) {
-		    auto view = registry.view<Health, Poison>();
-		    view.each([&](entt::entity entity, Health& health, Poison& poison) 
-                {
-
-			    // Remove the poison component
-			    registry.remove<Poison>(entity);
-				std::cout << "Cured all entities! " << std::endl;
-			    });
-		}
-
-        // SpawnPoisonSystem
-		// For each entity with health without poison 25% chance to spawn poison
-        auto view_healthy = registry.view<Health>(entt::exclude<Poison>);
-		view_healthy.each([&](entt::entity entity, Health& health) 
-            {
-			    if ((rand() % 100) < 25) 
-                {
-				    float tickDamage = static_cast<float>(rand() % 10 + 1);
-				    registry.emplace<Poison>(entity, tickDamage);
-					std::cout << "Spawned poison on entity " << (int)entity << std::endl;
-			    }
-			});
-
-
-        iterations++;
-        std::cout << "Iteration" << iterations
-		    << ", entities alive: " << registry.view<entt::entity>().size()
-            << std::endl;
-    }
-
     lua_State* L = luaL_newstate();
     luaL_openlibs(L);
 
+    // Registrera PrintTransform manuellt om du vill testa direkt
+    lua_register(L, "PrintTransform", PrintTransform);
 
-    luaL_dofile(L, "vector-test.lua");
+    // Skapa Scene och exponera till Lua
+    Scene scene(L);
+    Scene::lua_openscene(L, &scene);
 
+    // Skapa systemen
+    scene.CreateSystem<PoisonSystem>(10);
+    scene.CreateSystem<CleanupSystem>();
+    scene.CreateSystem<InfoSystem>();
+
+    // Ladda och kör sceneDemo.lua om du vill
+    luaL_dofile(L, "sceneDemo.lua");
+    std::printf("Living entities:   %d\n", scene.GetEntityCount());
+
+    // Kör 10 uppdateringar (ticks)
+    for (int i = 0; i < 10; i++) {
+        scene.UpdateSystems(1);
+    }
+
+    // Starta interaktiv Lua-terminal
     ConsoleThreadFunction(L);
 
     lua_close(L);
