@@ -3,20 +3,24 @@
   "WorkspaceRootPath": "C:\\Users\\Barnen\\Desktop\\SkriptingGame2D\\SkriptingGame\\ScriptingProject\\LuaProject\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{B058D1B6-1C25-4040-A53C-3B5291EA6E20}|Application\\Application.vcxproj|C:\\Users\\Barnen\\Desktop\\SkriptingGame2D\\SkriptingGame\\ScriptingProject\\LuaProject\\Application\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{B058D1B6-1C25-4040-A53C-3B5291EA6E20}|Application\\Application.vcxproj|solutionrelative:Application\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{B058D1B6-1C25-4040-A53C-3B5291EA6E20}|Application\\Application.vcxproj|C:\\Users\\Barnen\\Desktop\\SkriptingGame2D\\SkriptingGame\\ScriptingProject\\LuaProject\\Application\\Scene.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{B058D1B6-1C25-4040-A53C-3B5291EA6E20}|Application\\Application.vcxproj|solutionrelative:Application\\Scene.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B058D1B6-1C25-4040-A53C-3B5291EA6E20}|Application\\Application.vcxproj|C:\\Users\\Barnen\\Desktop\\SkriptingGame2D\\SkriptingGame\\ScriptingProject\\LuaProject\\Application\\Scene.hpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{B058D1B6-1C25-4040-A53C-3B5291EA6E20}|Application\\Application.vcxproj|solutionrelative:Application\\Scene.hpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B058D1B6-1C25-4040-A53C-3B5291EA6E20}|Application\\Application.vcxproj|C:\\Users\\Barnen\\Desktop\\SkriptingGame2D\\SkriptingGame\\ScriptingProject\\LuaProject\\Application\\Components.hpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{B058D1B6-1C25-4040-A53C-3B5291EA6E20}|Application\\Application.vcxproj|solutionrelative:Application\\Components.hpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B058D1B6-1C25-4040-A53C-3B5291EA6E20}|Application\\Application.vcxproj|C:\\Users\\Barnen\\Desktop\\SkriptingGame2D\\SkriptingGame\\ScriptingProject\\LuaProject\\Application\\System.hpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{B058D1B6-1C25-4040-A53C-3B5291EA6E20}|Application\\Application.vcxproj|solutionrelative:Application\\System.hpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B058D1B6-1C25-4040-A53C-3B5291EA6E20}|Application\\Application.vcxproj|C:\\Users\\Barnen\\Desktop\\SkriptingGame2D\\SkriptingGame\\ScriptingProject\\LuaProject\\Application\\Components.hpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{B058D1B6-1C25-4040-A53C-3B5291EA6E20}|Application\\Application.vcxproj|solutionrelative:Application\\Components.hpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{B058D1B6-1C25-4040-A53C-3B5291EA6E20}|Application\\Application.vcxproj|C:\\Users\\Barnen\\Desktop\\SkriptingGame2D\\SkriptingGame\\ScriptingProject\\LuaProject\\Application\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{B058D1B6-1C25-4040-A53C-3B5291EA6E20}|Application\\Application.vcxproj|solutionrelative:Application\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B058D1B6-1C25-4040-A53C-3B5291EA6E20}|Application\\Application.vcxproj|C:\\Users\\Barnen\\Desktop\\SkriptingGame2D\\SkriptingGame\\ScriptingProject\\LuaProject\\Application\\LuaBindings.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
@@ -25,10 +29,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{B058D1B6-1C25-4040-A53C-3B5291EA6E20}|Application\\Application.vcxproj|C:\\Users\\Barnen\\Desktop\\SkriptingGame2D\\SkriptingGame\\ScriptingProject\\LuaProject\\Application\\monster.lua||{3B902123-F8A7-4915-9F01-361F908088D0}",
       "RelativeMoniker": "D:0:0:{B058D1B6-1C25-4040-A53C-3B5291EA6E20}|Application\\Application.vcxproj|solutionrelative:Application\\monster.lua||{3B902123-F8A7-4915-9F01-361F908088D0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B058D1B6-1C25-4040-A53C-3B5291EA6E20}|Application\\Application.vcxproj|C:\\Users\\Barnen\\Desktop\\SkriptingGame2D\\SkriptingGame\\ScriptingProject\\LuaProject\\Application\\Scene.hpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{B058D1B6-1C25-4040-A53C-3B5291EA6E20}|Application\\Application.vcxproj|solutionrelative:Application\\Scene.hpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B058D1B6-1C25-4040-A53C-3B5291EA6E20}|Application\\Application.vcxproj|C:\\Users\\Barnen\\Desktop\\SkriptingGame2D\\SkriptingGame\\ScriptingProject\\LuaProject\\Application\\transform.lua||{3B902123-F8A7-4915-9F01-361F908088D0}",
@@ -54,11 +54,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 10,
+          "SelectedChildIndex": 7,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "monster.lua",
               "DocumentMoniker": "C:\\Users\\Barnen\\Desktop\\SkriptingGame2D\\SkriptingGame\\ScriptingProject\\LuaProject\\Application\\monster.lua",
               "RelativeDocumentMoniker": "Application\\monster.lua",
@@ -71,7 +71,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "LuaBindings.cpp",
               "DocumentMoniker": "C:\\Users\\Barnen\\Desktop\\SkriptingGame2D\\SkriptingGame\\ScriptingProject\\LuaProject\\Application\\LuaBindings.cpp",
               "RelativeDocumentMoniker": "Application\\LuaBindings.cpp",
@@ -97,26 +97,26 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "System.hpp",
               "DocumentMoniker": "C:\\Users\\Barnen\\Desktop\\SkriptingGame2D\\SkriptingGame\\ScriptingProject\\LuaProject\\Application\\System.hpp",
               "RelativeDocumentMoniker": "Application\\System.hpp",
               "ToolTip": "C:\\Users\\Barnen\\Desktop\\SkriptingGame2D\\SkriptingGame\\ScriptingProject\\LuaProject\\Application\\System.hpp",
               "RelativeToolTip": "Application\\System.hpp",
-              "ViewState": "AgIAAEIAAAAAAAAAAAAAAE8AAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2025-05-12T07:57:33.438Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 2,
               "Title": "Components.hpp",
               "DocumentMoniker": "C:\\Users\\Barnen\\Desktop\\SkriptingGame2D\\SkriptingGame\\ScriptingProject\\LuaProject\\Application\\Components.hpp",
               "RelativeDocumentMoniker": "Application\\Components.hpp",
               "ToolTip": "C:\\Users\\Barnen\\Desktop\\SkriptingGame2D\\SkriptingGame\\ScriptingProject\\LuaProject\\Application\\Components.hpp",
               "RelativeToolTip": "Application\\Components.hpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB8AAAAFAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2025-05-12T07:41:46.558Z",
               "EditorCaption": ""
@@ -136,26 +136,26 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 1,
               "Title": "Scene.hpp",
               "DocumentMoniker": "C:\\Users\\Barnen\\Desktop\\SkriptingGame2D\\SkriptingGame\\ScriptingProject\\LuaProject\\Application\\Scene.hpp",
               "RelativeDocumentMoniker": "Application\\Scene.hpp",
               "ToolTip": "C:\\Users\\Barnen\\Desktop\\SkriptingGame2D\\SkriptingGame\\ScriptingProject\\LuaProject\\Application\\Scene.hpp",
               "RelativeToolTip": "Application\\Scene.hpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB0AAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAB0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2025-05-08T13:39:52.16Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "Scene.cpp",
               "DocumentMoniker": "C:\\Users\\Barnen\\Desktop\\SkriptingGame2D\\SkriptingGame\\ScriptingProject\\LuaProject\\Application\\Scene.cpp",
               "RelativeDocumentMoniker": "Application\\Scene.cpp",
               "ToolTip": "C:\\Users\\Barnen\\Desktop\\SkriptingGame2D\\SkriptingGame\\ScriptingProject\\LuaProject\\Application\\Scene.cpp",
               "RelativeToolTip": "Application\\Scene.cpp",
-              "ViewState": "AgIAAC8AAAAAAAAAAAAgwEsAAAAtAAAAAAAAAA==",
+              "ViewState": "AgIAADUAAAAAAAAAAAAgwEoAAAADAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-05-08T13:39:59.557Z",
               "EditorCaption": ""
@@ -188,13 +188,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 4,
               "Title": "main.cpp",
               "DocumentMoniker": "C:\\Users\\Barnen\\Desktop\\SkriptingGame2D\\SkriptingGame\\ScriptingProject\\LuaProject\\Application\\main.cpp",
               "RelativeDocumentMoniker": "Application\\main.cpp",
               "ToolTip": "C:\\Users\\Barnen\\Desktop\\SkriptingGame2D\\SkriptingGame\\ScriptingProject\\LuaProject\\Application\\main.cpp",
               "RelativeToolTip": "Application\\main.cpp",
-              "ViewState": "AgIAACwAAAAAAAAAAAAwwDcAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAACwAAAAAAAAAAAAwwDQAAAAhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-05-03T06:51:30.297Z",
               "EditorCaption": ""
